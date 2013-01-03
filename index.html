@@ -18,7 +18,7 @@
                 </div>
                 <div class="content">
                     <p>
-                        Kestrel&rsquo;s eyes gazed up in awe as his lips curled at the ends. With an extented arm he pointed at the exotic giant before us. His small fingertips gently brushed the bumpy skin of the tall creature. From it&rsquo;s roots to it&rsquo;s leaves it exuded great strength. Bright shades of green protected us from the sun&rsquo;s rays like an umbrella shields rain on a gray day in London. The tree was gorgeous. Its beauty was apparent to most, for it was visually pleasing. But the beauty Kestrel saw in the tree was not noticed by the passerbys. He adorned that tree for its structure and it&rsquo;s complexities. His brown eyes gazed lustfully at the tree&rsquo;s branches acknowledging the possibilities each limb could grant him. For him this tree was perfect &mdash; for it was a tree to be climbed. Kestrel wrapped his arm&rsquo;s around the giants trunk as laced his fingers at it&rsquo;s back. He quickly shimmied his arms up until he got his footing in a nook between the trunk and a lower branch. His hands moved from branch to branch as his feet followed quickly in the same path. Higher and Higher he would climb until he could climb no more. And there in the canopy he would sit.
+                        Kestrel&rsquo;s eyes gazed up in awe as his lips curled at the ends. With an extented arm he pointed at the exotic giant before us. His small fingertips gently brushed the bumpy skin of the tall creature. From its roots to its leaves it exuded great strength. Bright shades of green protected us from the sun&rsquo;s rays like an umbrella shields rain on a gray day in London. The tree was gorgeous. Its beauty was apparent to most, for it was visually pleasing. But the beauty Kestrel saw in the tree was not noticed by the passerbys. He adorned that tree for its structure and its complexities. His brown eyes gazed lustfully at the tree&rsquo;s branches acknowledging the possibilities each limb could grant him. For him this tree was perfect &mdash; for it was a tree to be climbed. Kestrel wrapped his arm&rsquo;s around the giants trunk as laced his fingers at its back. He quickly shimmied his arms up until he got his footing in a nook between the trunk and a lower branch. His hands moved from branch to branch as his feet followed quickly in the same path. Higher and Higher he would climb until he could climb no more. And there in the canopy he would sit.
                     </p>
                     <time>January 3, 2013</time>
                     <ul class="lovelies">
@@ -32,7 +32,10 @@
                         <li>Paul R.</li>
                         <li>Katie R.</li>
                     </ul>
-                    <p><a class="donate" href=""><span>Donate <b class="price">$1</b></a></span></p>
+                    <p><a class="big donate" href=""><span>Donate <b class="price">$1</b></a></span></p>
+                    <nav>
+                        <a class="big older" href="#booby"><span>Older: <b>Booby</b></span></a>
+                    </nav>
                 </div>
             </article>
             <article class="hidden" data-id="1" id="booby">
@@ -55,7 +58,10 @@
                         <li>Paul R.</li>
                         <li>Katie R.</li>
                     </ul>
-                    <p><a class="donate" href=""><span>Donate <b class="price">$1</b></a></span></p>
+                    <p><a class="big donate" href=""><span>Donate <b class="price">$1</b></a></span></p>
+                    <nav>
+                        <a class="big newer" href="#the-mango-tree"><span>Newer: <b>The Mango Tree</b></span></a>
+                    </nav>
                 </div>
             </article>
         </section>
@@ -63,8 +69,17 @@
     <script type="text/javascript" src="//use.typekit.net/jpm7ajf.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script>
-        var current = window.location.hash.slice(1, window.location.hash.length);
-        document.getElementById(current || 'booby').className = '';
+        document.querySelectorAll;
+        function toggle() {
+            var articles = document.querySelectorAll('article');
+            for (var i = 0; i < articles.length; i++) {
+                articles[i].className = 'hidden';
+            }
+            document.querySelectorAll(window.location.hash || 'article:last-child')[0].className = '';
+            document.body.scrollTop = 0;
+        }
+        window.onhashchange = toggle;
+        toggle();
     </script>
   </body>
 </html>

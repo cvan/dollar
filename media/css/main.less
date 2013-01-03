@@ -48,7 +48,7 @@ a {
     display: none;
 }
 
-article, .splash {
+article, .splash, .content {
     height: 100%;
 }
 
@@ -57,17 +57,48 @@ article, .splash {
     background-size: cover;
 }
 
-article {
-    > div {
-        //background: @grain-src rgba(255,255,255,.1);
-        height: 100%;
-        p {
-            background:rgba(255,255,255,.5);
-            font-size: 22px;
-            line-height: 24px;
-            &:first-child {
-                .text-columns(2);
-                padding: 30px;
+.content {
+    position: relative;
+    p {
+        background:rgba(255,255,255,.5);
+        font-size: 22px;
+        line-height: 24px;
+        &:first-child {
+            .text-columns(2);
+            padding: 30px;
+        }
+    }
+    nav {
+        padding: 30px;
+        position: absolute;
+        bottom: 0;
+        line-height: 22px;
+        width: 100%;
+        a {
+            color: #999;
+            display: block;
+            width: 50%;
+        }
+        b {
+            color: #444;
+        }
+        .older:before, .newer:after {
+            content: "\2039\00a0";
+            font-size: 48px;
+            position: relative;
+            bottom: -7px;
+        }
+        .older {
+            float: left;
+            &:before {
+                content: "\2039\00a0";
+            }
+        }
+        .newer {
+            float: right;
+            text-align: right;
+            &:after {
+                content: "\00a0\203a";
             }
         }
     }
@@ -146,18 +177,7 @@ h2 {
 
 a.donate {
     color: #666;
-    border: 0;
-    display: block;
     padding: 30px;
-    span {
-        border-bottom: transparent 1px solid;
-        display: inline-block;
-    }
-    &:hover {
-        span {
-            border-bottom-color: #ccc;
-        }
-    }
     &:before {
         color: #0c0;
         content: "♥ \00a0";
@@ -169,4 +189,18 @@ a.donate {
 
 .price {
     color: #373;
+}
+
+a.big {
+    border: 0;
+    display: block;
+    span {
+        border-bottom: transparent 1px solid;
+        display: inline-block;
+    }
+    &:hover {
+        span {
+            border-bottom-color: #ccc;
+        }
+    }
 }

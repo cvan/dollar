@@ -48,22 +48,23 @@ a:hover {
   display: none;
 }
 article,
-.splash {
+.splash,
+.content {
   height: 100%;
 }
 .splash {
   background-repeat: no-repeat;
   background-size: cover;
 }
-article > div {
-  height: 100%;
+.content {
+  position: relative;
 }
-article > div p {
+.content p {
   background: rgba(255, 255, 255, 0.5);
   font-size: 22px;
   line-height: 24px;
 }
-article > div p:first-child {
+.content p:first-child {
   column-count: 2;
   -moz-column-count: 2;
   -webkit-column-count: 2;
@@ -71,6 +72,41 @@ article > div p:first-child {
   -moz-column-gap: 1em;
   -webkit-column-gap: 1em;
   padding: 30px;
+}
+.content nav {
+  padding: 30px;
+  position: absolute;
+  bottom: 0;
+  line-height: 22px;
+  width: 100%;
+}
+.content nav a {
+  color: #999;
+  display: block;
+  width: 50%;
+}
+.content nav b {
+  color: #444;
+}
+.content nav .older:before,
+.content nav .newer:after {
+  content: "\2039\00a0";
+  font-size: 48px;
+  position: relative;
+  bottom: -7px;
+}
+.content nav .older {
+  float: left;
+}
+.content nav .older:before {
+  content: "\2039\00a0";
+}
+.content nav .newer {
+  float: right;
+  text-align: right;
+}
+.content nav .newer:after {
+  content: "\00a0\203a";
 }
 time {
   color: #999;
@@ -144,16 +180,7 @@ h2 span:hover {
 }
 a.donate {
   color: #666;
-  border: 0;
-  display: block;
   padding: 30px;
-}
-a.donate span {
-  border-bottom: transparent 1px solid;
-  display: inline-block;
-}
-a.donate:hover span {
-  border-bottom-color: #ccc;
 }
 a.donate:before {
   color: #0c0;
@@ -164,4 +191,15 @@ a.donate:before {
 }
 .price {
   color: #373;
+}
+a.big {
+  border: 0;
+  display: block;
+}
+a.big span {
+  border-bottom: transparent 1px solid;
+  display: inline-block;
+}
+a.big:hover span {
+  border-bottom-color: #ccc;
 }
