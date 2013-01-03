@@ -69,7 +69,26 @@
     <script type="text/javascript" src="//use.typekit.net/jpm7ajf.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script>
-        document.querySelectorAll;
+        function debounce(func, wait, immediate) {
+            var timeout, result;
+            return function() {
+                var context = this,
+                    args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) {
+                        result = func.apply(context, args);
+                    }
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) {
+                    result = func.apply(context, args);
+                }
+                return result;
+            };
+        }
         function toggle() {
             var articles = document.querySelectorAll('article');
             for (var i = 0; i < articles.length; i++) {
@@ -78,7 +97,20 @@
             document.querySelectorAll(window.location.hash || 'article:last-child')[0].className = '';
             document.body.scrollTop = 0;
         }
+        function opacityChange() {
+            var ratio = document.body.scrollTop / document.body.offsetHeight;
+            var opacity = 1 - ratio;
+            if (opacity < .8) {
+                opacity = opacity * .5;
+            }
+            if (opacity < .265) {
+                opacity = 0;
+            }
+            console.log(opacity);
+            document.querySelectorAll('article:not(.hidden) .splash h2 span')[0].style.opacity = opacity;
+        }
         window.onhashchange = toggle;
+        window.onscroll = debounce(opacityChange, 100);
         toggle();
     </script>
   </body>
