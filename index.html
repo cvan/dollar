@@ -12,7 +12,7 @@
     <div class="container">
         <h1>The Power <em>of</em> the Dollar</h1>
         <section class="articles">
-            <article class="hidden" data-id="2" id="the-mango-tree">
+            <article class="hidden" data-id="2" data-image="media/img/articles/the-mango-tree-1.jpg" id="the-mango-tree">
                 <div class="splash" style="background-image:url(media/img/articles/the-mango-tree-1.jpg)">
                     <h2><span>The Mango Tree</span></h2>
                 </div>
@@ -38,7 +38,7 @@
                     </nav>
                 </div>
             </article>
-            <article class="hidden" data-id="1" id="booby">
+            <article class="hidden" data-id="1" data-image="media/img/articles/booby-1.jpg" id="booby">
                 <div class="splash" style="background-image:url(media/img/articles/booby-1.jpg)">
                     <h2><span>Booby</span></h2>
                 </div>
@@ -109,9 +109,17 @@
             console.log(opacity);
             document.querySelectorAll('article:not(.hidden) .splash h2 span')[0].style.opacity = opacity;
         }
+        if (location.search.indexOf('?fancy') > -1) {
+            window.onscroll = debounce(opacityChange, 100);
+        }
         window.onhashchange = toggle;
-        window.onscroll = debounce(opacityChange, 100);
         toggle();
+
+        // Preload images from other articles.
+        var otherArticles = document.querySelectorAll('article.hidden');
+        for (var i = 0; i < otherArticles.length; i++) {
+            (new Image).src = otherArticles[i].getAttribute('data-image');
+        }
     </script>
   </body>
 </html>
