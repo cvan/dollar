@@ -53,6 +53,7 @@ article, .splash, .content {
 }
 
 .splash {
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -61,10 +62,10 @@ article, .splash, .content {
     position: relative;
     p {
         background:rgba(255,255,255,.5);
-        font-size: 22px;
-        line-height: 24px;
+        font-size: 18px;
+        line-height: 22px;
         &:first-child {
-            .text-columns(2);
+//            .text-columns(2);
             padding: 30px;
         }
     }
@@ -118,7 +119,7 @@ h1 {
     position: absolute;
     top: 0;
     left: 15px;
-    width: 23%;
+    width: 240px;
     em {
         color: #333;
         text-align: center;
@@ -137,6 +138,9 @@ h2 {
     span {
         .transition(.1s opacity ease-in-out);
         display: block;
+        &:hover {
+            opacity: 0;
+        }
     }
 }
 

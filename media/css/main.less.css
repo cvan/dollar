@@ -53,6 +53,7 @@ article,
   height: 100%;
 }
 .splash {
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -61,16 +62,10 @@ article,
 }
 .content p {
   background: rgba(255, 255, 255, 0.5);
-  font-size: 22px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 22px;
 }
 .content p:first-child {
-  column-count: 2;
-  -moz-column-count: 2;
-  -webkit-column-count: 2;
-  column-gap: 1em;
-  -moz-column-gap: 1em;
-  -webkit-column-gap: 1em;
   padding: 30px;
 }
 .content nav {
@@ -121,7 +116,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 15px;
-  width: 23%;
+  width: 240px;
 }
 h1 em {
   color: #333;
@@ -142,6 +137,9 @@ h2 span {
   -webkit-transition: 0.1s opacity ease-in-out;
   transition: 0.1s opacity ease-in-out;
   display: block;
+}
+h2 span:hover {
+  opacity: 0;
 }
 .splash {
   display: table;
